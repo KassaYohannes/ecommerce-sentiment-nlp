@@ -44,7 +44,7 @@ def load_review_data(
     """
     rng = np.random.default_rng(seed)
 
-    ds = load_dataset("amazon_polarity")
+    ds = load_dataset("fancyzhx/amazon_polarity")
 
     train_full = ds["train"]
     test_full = ds["test"]
