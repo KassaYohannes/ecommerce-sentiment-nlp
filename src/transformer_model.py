@@ -82,12 +82,16 @@ def run_transformer(
         seed=42,
     )
 
+from transformers import DataCollatorWithPadding
+
     trainer = Trainer(
         model=model,
         args=args,
         train_dataset=train_ds,
         eval_dataset=test_ds,
         compute_metrics=_compute_metrics,
+        data_collator=DataCollatorWithPadding(tokenizer),
+        processing_class=tokenizer,
     )
 
     trainer.train()
