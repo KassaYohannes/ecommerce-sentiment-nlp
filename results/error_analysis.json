@@ -1,0 +1,128 @@
+{
+  "n_errors": 133,
+  "error_rate": 0.0665,
+  "mean_length_correct": 78.3,
+  "mean_length_error": 81.0,
+  "most_confident_errors": [
+    {
+      "index": 1603,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.997,
+      "length_words": 53,
+      "text_preview": "Great book on animal abuse. If you're a redneck w/a Pit bull and want to see lots of pictures of other rednecks w/Pit bulls, then this is the book for you. Great book on dog fighting and animal abuse."
+    },
+    {
+      "index": 1570,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9969,
+      "length_words": 60,
+      "text_preview": "Interactive but not much of activity ... This toy used to engage my baby about a 15 minutes or so..He played with it in his early phase of 1st year(around his 6th month-8thmonth)..and babies are very "
+    },
+    {
+      "index": 1577,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9967,
+      "length_words": 36,
+      "text_preview": "A Great Fantasy Flick. There is a simple way to explain why this film is so bad. Ruben did it. Thats right, thats the real story of the Hurricane, the man the authorities correctly blamed !!"
+    },
+    {
+      "index": 1017,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9964,
+      "length_words": 53,
+      "text_preview": "Good Toy, cheaper at the mall!. We've had this toy for almost four years and it's held up very well. The real problem is that if you shop here your getting ripped off. This is a Disney store product y"
+    },
+    {
+      "index": 871,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9963,
+      "length_words": 115,
+      "text_preview": "The Horses of Proud Spirit. Melanie Sue Bowles is one of the kindest people it has been my pleasure to meet. The care and love that she and her husband, Jim, selflessly and continually shower on the h"
+    },
+    {
+      "index": 448,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9962,
+      "length_words": 28,
+      "text_preview": "A great fiction. Lies , half truths ,hate , inaccurate historical references litter Michael Wiener's book AKA Savage. He is a capatilist who wants to make money. PERIOD"
+    },
+    {
+      "index": 946,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9956,
+      "length_words": 121,
+      "text_preview": "Not worth it, but here's the one that so is.... Working socks on two circular needles is great for socks. But this book does nothing to help the person who wants to be able to create socks for multipl"
+    },
+    {
+      "index": 1091,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9954,
+      "length_words": 31,
+      "text_preview": "Optical Mouse are the BEST. If you ever use an optical then you will have to throw away your old ball mouse. Buy it, your hand will thank you for it!"
+    },
+    {
+      "index": 1332,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9951,
+      "length_words": 33,
+      "text_preview": "LOVE THIS TIME ON THE CEILING /TEMP CLOCK. the clock light is not obtrusive, i donot need glasses to see what time it is all during the night........... i enjoy this little jewel."
+    },
+    {
+      "index": 68,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9948,
+      "length_words": 127,
+      "text_preview": "PREACH IT BROTHER TONY......PREACH IT. I didnt laugh and I didnt cry.....but yawned a bit....made a bemused face....and scratched my nether regions.I wish this book stopped going on about \"Star wars\" "
+    },
+    {
+      "index": 639,
+      "true": 1,
+      "pred": 0,
+      "confidence": 0.9948,
+      "length_words": 49,
+      "text_preview": "Too Large. I had to return this card because it wouldn't fit in the available computer space. So I really did not have a chance to use it. I have an HP 8760C. The card is about 10 inches long. So just"
+    },
+    {
+      "index": 32,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9946,
+      "length_words": 24,
+      "text_preview": "Great light when they arrive intact. I tried to get these shipped but cant seem to get one that is not damaged in shipping."
+    },
+    {
+      "index": 1201,
+      "true": 1,
+      "pred": 0,
+      "confidence": 0.9946,
+      "length_words": 76,
+      "text_preview": "Interesting, but not what I expected. I guess I just have high expections for Eric Dickey. It was a good book but not what I expected. The two main characters didn't grab me. I mean it had some predic"
+    },
+    {
+      "index": 1625,
+      "true": 0,
+      "pred": 1,
+      "confidence": 0.9946,
+      "length_words": 23,
+      "text_preview": "good. this is good but I think its kind of pricey. and the price seems to go up and down but more up."
+    },
+    {
+      "index": 1385,
+      "true": 1,
+      "pred": 0,
+      "confidence": 0.9942,
+      "length_words": 88,
+      "text_preview": "Doesn't do it justice. Sorry, but the CD doesn't come close to the real thing, baby! It's OK, but it's only 10% of the whole. For one thing, it cuts out the entire snare-line's riff. Blasphemy! Buy th"
+    }
+  ]
+}

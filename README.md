@@ -66,17 +66,29 @@ All metrics and plots are written to `results/`.
 
 ## Results
 
-> Run `python -m src.run` to populate this section. After training, paste the
-> printed summary here and commit the `results/` artifacts (metrics JSON +
-> confusion matrices). A filled-in results table with the macro-F1 delta between
-> baseline and transformer is what makes this repo concrete to a reader.
-
-Example of what to report:
+Trained on a balanced 8,000-review subsample, evaluated on 2,000 held-out reviews
+(seed 42, DistilBERT fine-tuned for 2 epochs).
 
 | Model | Accuracy | Macro-F1 |
 |-------|----------|----------|
-| TF-IDF + LogReg | _to fill_ | _to fill_ |
-| DistilBERT (2 epochs) | _to fill_ | _to fill_ |
+| TF-IDF + Logistic Regression | 0.8755 | 0.8754 |
+| DistilBERT (2 epochs) | 0.9335 | 0.9335 |
+
+Fine-tuning DistilBERT improved macro-F1 by **+0.0581** over the baseline.
+
+### Error analysis
+
+On the test split the fine-tuned model made 133 errors (6.7% error rate).
+Misclassified reviews were slightly longer on average than correctly classified
+ones (81.0 vs 78.3 words), suggesting longer, more nuanced reviews — where
+positive and negative sentiment often coexist — are the harder cases. The 15
+most-confident misclassifications are saved in `results/error_analysis.json`
+for inspection.
+
+These results match expectations: a strong TF-IDF baseline already captures most
+of the signal in binary sentiment, and contextual representations from a
+fine-tuned transformer add a meaningful but bounded improvement on the harder,
+more ambiguous reviews.
 
 ## Methodology notes
 

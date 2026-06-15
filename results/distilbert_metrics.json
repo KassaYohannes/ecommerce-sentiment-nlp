@@ -1,0 +1,36 @@
+{
+  "model": "distilbert",
+  "accuracy": 0.9335,
+  "macro_f1": 0.9335,
+  "per_class_f1": {
+    "negative": 0.932,
+    "positive": 0.935
+  },
+  "full_report": {
+    "negative": {
+      "precision": 0.9211324570273003,
+      "recall": 0.943064182194617,
+      "f1-score": 0.9319693094629156,
+      "support": 966.0
+    },
+    "positive": {
+      "precision": 0.9455984174085065,
+      "recall": 0.9245647969052224,
+      "f1-score": 0.9349633251833741,
+      "support": 1034.0
+    },
+    "accuracy": 0.9335,
+    "macro avg": {
+      "precision": 0.9333654372179034,
+      "recall": 0.9338144895499196,
+      "f1-score": 0.9334663173231448,
+      "support": 2000.0
+    },
+    "weighted avg": {
+      "precision": 0.9337813585443839,
+      "recall": 0.9335,
+      "f1-score": 0.9335172155903927,
+      "support": 2000.0
+    }
+  }
+}
