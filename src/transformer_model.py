@@ -36,7 +36,7 @@ def _tokenize_dataset(texts: list[str], labels: list[int], tokenizer) -> Dataset
 
     ds = ds.map(tok, batched=True)
     ds = ds.remove_columns(["text"])
-    ds.set_format("torch")
+    ds = ds.rename_column("label", "labels")
     return ds
 
 
