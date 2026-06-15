@@ -41,7 +41,7 @@ def _tokenize_dataset(texts: list[str], labels: list[int], tokenizer) -> Dataset
 
     ds = ds.map(tok, batched=True)
     ds = ds.remove_columns(["text"])
-    # No set_format("torch") here on purpose — the data collator handles tensors.
+    # No set_format("torch") here on purpose -- the data collator handles tensors.
     return ds
 
 
@@ -61,8 +61,14 @@ def run_transformer(
     lr: float = 2e-5,
     results_path: str | None = None,
     output_dir: str = "./distilbert_out",
-) -> dict:
-    """Fine-tune DistilBERT and evaluate on the test split."""
+    return_model: bool = False,
+):
+    """Fine-tune DistilBERT and evaluate on the test split.
+
+    Returns the metrics dict. If return_model is True, returns a tuple of
+    (metrics, model, tokenizer) so downstream steps (e.g. error analysis) can
+    use the trained model directly without reloading from disk.
+    """
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Training on: {device}")
 
@@ -110,6 +116,9 @@ def run_transformer(
         model_name="distilbert",
         results_path=results_path,
     )
+
+    if return_model:
+        return metrics, model, tokenizer
     return metrics
 
 

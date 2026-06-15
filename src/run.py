@@ -50,8 +50,8 @@ def main() -> None:
     transformer_metrics = None
     if not args.skip_transformer:
         print("\n=== Transformer: DistilBERT fine-tune ===")
-        transformer_metrics = run_transformer(
-            data, epochs=args.epochs, results_path=RESULTS_DIR
+        transformer_metrics, model, tokenizer = run_transformer(
+            data, epochs=args.epochs, results_path=RESULTS_DIR, return_model=True
         )
         print(
             f"accuracy={transformer_metrics['accuracy']}  "
@@ -59,7 +59,9 @@ def main() -> None:
         )
 
         print("\n=== Error analysis (DistilBERT) ===")
-        run_error_analysis(data, results_path=RESULTS_DIR)
+        run_error_analysis(
+            data, model=model, tokenizer=tokenizer, results_path=RESULTS_DIR
+        )
 
     print("\n=== Summary ===")
     print(f"Baseline    macro-F1: {baseline_metrics['macro_f1']}")

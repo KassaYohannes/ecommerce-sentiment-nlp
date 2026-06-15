@@ -14,7 +14,6 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from datasets import Dataset
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 from .data import SplitData
@@ -22,27 +21,44 @@ from .data import SplitData
 MODEL_NAME = "distilbert-base-uncased"
 
 
+def _has_saved_model(path: Path) -> bool:
+    """A directory only counts as a loadable checkpoint if it has a config."""
+    return (path / "config.json").exists()
+
+
 def run_error_analysis(
     data: SplitData,
+    model=None,
+    tokenizer=None,
     model_dir: str = "./distilbert_out",
     results_path: str = "results",
     top_k: int = 15,
 ) -> dict:
     """Identify and characterize the transformer's worst errors.
 
-    Note: this reloads from the base model unless a fine-tuned checkpoint is
-    provided. In the full run.py flow, call this right after run_transformer so
-    the in-memory model is warm; here we keep it standalone-runnable by loading
-    the base weights, which is enough to demonstrate the analysis structure.
+    Pass the in-memory fine-tuned `model` and `tokenizer` from run_transformer
+    for a true analysis of the trained model. If they are not provided, the
+    function falls back to a saved checkpoint in `model_dir`, and if that does
+    not exist either, it loads base weights only to demonstrate the analysis
+    structure (the error patterns will not reflect a trained model in that case).
     """
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
-    ckpt = Path(model_dir)
-    load_from = str(ckpt) if ckpt.exists() else MODEL_NAME
-    model = AutoModelForSequenceClassification.from_pretrained(
-        load_from, num_labels=2
-    ).to(device)
+    if model is None or tokenizer is None:
+        ckpt = Path(model_dir)
+        load_from = str(ckpt) if _has_saved_model(ckpt) else MODEL_NAME
+        if load_from == MODEL_NAME:
+            print(
+                "[error_analysis] No saved checkpoint found; loading base "
+                "weights. For trained-model analysis, pass the model/tokenizer "
+                "from run_transformer directly."
+            )
+        tokenizer = AutoTokenizer.from_pretrained(load_from)
+        model = AutoModelForSequenceClassification.from_pretrained(
+            load_from, num_labels=2
+        )
+
+    model = model.to(device)
     model.eval()
 
     texts = data.test_texts
@@ -85,9 +101,7 @@ def run_error_analysis(
     errors.sort(key=lambda e: e["confidence"], reverse=True)
 
     correct_lengths = [
-        len(texts[i].split())
-        for i in range(len(texts))
-        if labels[i] == preds[i]
+        len(texts[i].split()) for i in range(len(texts)) if labels[i] == preds[i]
     ]
     error_lengths = [e["length_words"] for e in errors]
 
